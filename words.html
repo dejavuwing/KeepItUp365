@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>dejavuwing</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<style type="text/css">
+		*{padding:0; margin:0;}
+
+		.float{
+			position:fixed;
+			width:60px;
+			height:60px;
+			bottom:40px;
+			right:40px;
+			background-color:#0C9;
+			color:#FFF;
+			border-radius:50px;
+			text-align:center;
+			box-shadow: 2px 2px 3px #999;
+		}
+
+		.my-float{
+			margin-top:22px;
+		}
+
+		.my-iframe {
+			display:block;
+			border:none;
+			height:100vh;
+			width:100vw;
+      }
+	</style>
+
+	<script language='JavaScript' type='text/javascript'>
+		var articles = [133,141,157,169,205,206,215,231,246,247,272,273,305,306,307,308,309,310,391,392,393,394,395,396,478,479,480,481,482,483,484,485,486,487,488,489,490,491,492,493,494,495,496,497,498,499,500,501,502,503,504,505,506,507,508,571,572,605,606,607,608,609,610,611,612,803,804,805,806,807,1015,1016,1017,1018,1019,1020,1021,1022,1023,1024,1025,1026,1027,1028,1029,1030,1031,1032,1033,1196,1197,1198,1199,1200,1201,1202,1203,1204,1205,1206,1207,1208,1209,1210,1211,1212,1213,1214];
+
+		function shuffle(o){
+			o.sort(function(){return 0.5-Math.random()});
+			return o;
+		};
+
+		articles = shuffle(articles);
+
+		function newSite(){
+			if (articles <= 0) {
+				alert('준비된 post를 모두 보셨습니다.');
+			} else {
+				var baseurl = 'https://dejavuwing.tistory.com/';
+				var number = articles[Math.floor(Math.random() * articles.length)];
+				document.getElementById('myIframe').src = baseurl + number;
+				articles = articles.filter(function(e) { return e !== number });
+			}
+		}
+	</script>
+</head>
+<body>
+	<iframe width="100%" height="600" id="myIframe" src="https://dejavuwing.tistory.com" class="my-iframe" frameborder="0" ></iframe>
+	<a href="#" class="float" onClick="newSite()">
+		<i class="fa fa-refresh my-float"></i>
+	</a>
+</body>
+</html>
+
